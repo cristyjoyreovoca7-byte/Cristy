@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login & Sign Up Page</title><link rel="stylesheet" href="login_style.css"><link rel="stylesheet" href="theme.css"><script src="theme.js"></script></head>
+<body><div class="form-container"><h2 id="formTitle">Login</h2>
+<form id="authForm" onsubmit="event.preventDefault();handleSubmit()">
+<label for="username">Username</label><input type="text" id="username" required>
+<label for="password">Password</label><input type="password" id="password" required>
+<div class="show-password" id="showPasswordContainer"><input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"><label for="showPassword">Show Password</label></div>
+<label for="confirmPassword" id="confirmPasswordLabel" style="display:none">Confirm Password</label><input type="password" id="confirmPassword" style="display:none">
+<p id="passwordMatchMessage" style="font-size:14px;display:none"></p>
+<button type="submit" id="submitBtn">Login</button><p id="errorMessage"></p>
+<p id="toggleText">Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p></form></div>
+<script>
+let isLogin=true;const $=id=>document.getElementById(id);
+function toggleForm(){$('authForm').reset();$('errorMessage').textContent='';$('passwordMatchMessage').style.display='none';
+isLogin=!isLogin;$('formTitle').textContent=isLogin?'Login':'Sign Up';$('submitBtn').textContent=isLogin?'Login':'Sign Up';
+$('confirmPassword').style.display=$('confirmPasswordLabel').style.display=isLogin?'none':'block';
+$('showPasswordContainer').style.visibility=isLogin?'visible':'hidden';
+$('toggleText').innerHTML=isLogin?'Don\'t have an account? <a href="#" onclick="toggleForm()">Sign Up</a>':'Already have an account? <a href="#" onclick="toggleForm()">Login</a>'}
+function handleSubmit(){const u=$('username').value,p=$('password').value,e=$('errorMessage');
+if(isLogin){if(u===localStorage.getItem('username')&&p===localStorage.getItem('password')){sessionStorage.setItem('isLoggedIn','1');alert('Welcome! Successfully logged in.');location.href='index.html'}else e.textContent='Invalid username or password'}
+else if(p!==$('confirmPassword').value)e.textContent='Passwords do not match';
+else if(u&&p){localStorage.setItem('username',u);localStorage.setItem('password',p);alert('Account created successfully! You can now log in.');toggleForm()}
+else e.textContent='Please fill out all fields'}
+function togglePasswordVisibility(){const f=$('password');f.type=f.type==='password'?'text':'password'}
+$('confirmPassword').addEventListener('input',()=>{const m=$('passwordMatchMessage'),c=$('confirmPassword').value;
+if(!c){m.style.display='none';return}const ok=c===$('password').value;m.textContent=ok?'Passwords match':'Passwords do not match';m.style.color=ok?'#bfdbfe':'#fff';m.style.display='block'});
+</script></body></html>

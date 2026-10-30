@@ -1,0 +1,13 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Trebuchet MS",sans-serif;display:grid;place-items:center;min-height:100vh;color:#e8f0ff;background:radial-gradient(ellipse at 50% 0,#0a1a4f,#020617 70%)}
+.form-container{width:350px;padding:28px;text-align:center;background:rgba(2,6,23,.75);border:2px solid #fff;border-radius:20px;box-shadow:0 0 8px #fff,0 0 28px #3b82f6,0 0 64px #1d4ed8,inset 0 0 18px rgba(96,165,250,.45)}
+h2{font-family:Georgia,serif;font-weight:400;font-size:2.6rem;margin-bottom:18px;text-shadow:0 0 6px #fff,0 0 22px #3b82f6}
+label{display:block;text-align:left;margin:6px 0;font-size:15px}
+input[type=text],input[type=password]{width:100%;padding:10px;margin-bottom:10px;border:1px solid #fff;border-radius:12px;background:#020617;color:#fff;font-size:16px}
+button{width:100%;padding:12px;margin:8px 0;background:#fff;color:#020617;border:0;border-radius:999px;font:bold 16px "Trebuchet MS",sans-serif;cursor:pointer;box-shadow:0 0 18px #60a5fa}
+button:hover{box-shadow:0 0 32px #bfdbfe}
+a{color:#93c5fd}
+#errorMessage{color:#bfdbfe;font-size:14px;min-height:1.2em}
+.show-password{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.show-password label{margin:0;font-size:14px}
+:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}

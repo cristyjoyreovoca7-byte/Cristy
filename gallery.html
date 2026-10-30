@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery - Personal Website</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+
+    <!-- Theme JavaScript -->
+    <script src="theme.js"></script>
+</head>
+
+<body data-page="gallery">
+
+    <main class="wrap">
+
+        <!-- Gallery Section -->
+        <section class="card">
+
+            <h2 class="title">Gallery</h2>
+
+            <p class="lead">
+                Click an image to open the lightbox.
+                Use the arrows or keyboard to browse.
+            </p>
+
+            <!-- Gallery Images -->
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img
+                        src="CRISTY.jpg"
+                        alt="Project image 1"
+                        class="thumbnail"
+                    >
+                    <p>Description for Image 1</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="IMG.jpg"
+                        alt="Project image 2"
+                        class="thumbnail"
+                    >
+                    <p>Description for Image 2</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="REOVOCA.jpeg"
+                        alt="Project image 3"
+                        class="thumbnail"
+                    >
+                    <p>Description for Image 3</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="REOVOCA.jpg"
+                        alt="Project image 4"
+                        class="thumbnail"
+                    >
+                    <p>Description for Image 4</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="RECENTE.jpg"
+                        alt="Project image 5"
+                        class="thumbnail"
+                    >
+                    <p>Description for Image 5</p>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="Nene.jpg"
+                        alt="Project image 6"
+                        class="thumbnail"
+                    >
+                    <p>Description for Image 6</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div
+            id="lightbox"
+            class="lightbox"
+            onclick="if (event.target === this) closeLightbox()"
+        >
+
+            <!-- Close Button -->
+            <span
+                class="close"
+                onclick="closeLightbox()"
+            >
+                &times;
+            </span>
+
+            <!-- Previous Image -->
+            <a
+                class="prev"
+                onclick="changeImage(-1)"
+            >
+                &#10094;
+            </a>
+
+            <!-- Enlarged Image -->
+            <img
+                id="lightboxImage"
+                src=""
+                alt="Enlarged image"
+            >
+
+            <!-- Next Image -->
+            <a
+                class="next"
+                onclick="changeImage(1)"
+            >
+                &#10095;
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>

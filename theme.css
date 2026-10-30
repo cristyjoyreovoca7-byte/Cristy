@@ -1,0 +1,45 @@
+/* =====================================================
+   theme.css  -  Day / Night scene and day colour palette
+   Sections: 1 Scene layer | 2 Night | 3 Day | 4 Day palette | 5 Toggle
+   ===================================================== */
+
+/* 1. SCENE LAYER (sits behind all content) */
+#sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+#sky .night,#sky .day{position:absolute;inset:0;display:none}
+html[data-theme="night"] #sky .night,html[data-theme="day"] #sky .day{display:block}
+
+/* 2. NIGHT: moon + twinkling stars */
+.moon{position:absolute;top:150px;right:9%;width:80px;height:80px;border-radius:50%;box-shadow:inset -26px 8px 0 0 #fff;filter:drop-shadow(0 0 14px #bfdbfe) drop-shadow(0 0 34px #3b82f6)}
+.star{position:absolute;width:var(--s);height:var(--s);background:#fff;border-radius:50%;box-shadow:0 0 6px #fff,0 0 12px #60a5fa;animation:twinkle var(--t) ease-in-out infinite;animation-delay:var(--d)}
+@keyframes twinkle{50%{opacity:.2;transform:scale(.6)}}
+
+/* 3. DAY: sky-blue clouds + black birds */
+.cloud{position:absolute;left:-320px;top:var(--y);width:170px;height:52px;background:#87ceeb;border-radius:52px;transform:scale(var(--k));box-shadow:0 0 26px #fff;animation:drift var(--t) linear infinite;animation-delay:var(--d)}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#87ceeb;border-radius:50%}
+.cloud::before{width:70px;height:70px;left:26px;top:-34px}
+.cloud::after{width:92px;height:92px;right:24px;top:-46px}
+@keyframes drift{to{left:112vw}}
+.bird{position:absolute;left:-60px;top:var(--y);width:34px;animation:fly var(--t) linear infinite;animation-delay:var(--d)}
+.bird svg{display:block;width:100%;transform-origin:center 70%;animation:flap .5s ease-in-out infinite alternate}
+@keyframes fly{50%{transform:translateY(-26px)}to{left:110vw}}
+@keyframes flap{to{transform:scaleY(.35)}}
+
+/* 4. DAY PALETTE (overrides the dark-blue defaults) */
+html[data-theme="day"] body{color:#0a1a4f;background:linear-gradient(#bfe6ff,#eaf7ff 70%) fixed}
+html[data-theme="day"] .card{background:rgba(255,255,255,.78);border-color:#1d4ed8;box-shadow:0 0 8px #fff,0 0 24px #60a5fa,0 0 54px rgba(37,99,235,.55),inset 0 0 16px rgba(147,197,253,.6);animation:none}
+html[data-theme="day"] h2.title,html[data-theme="day"] blockquote{text-shadow:none;color:#0a1a4f}
+html[data-theme="day"] blockquote{border-color:#1d4ed8}
+html[data-theme="day"] .about img{border-color:#1d4ed8}
+html[data-theme="day"] .contact-details{border-color:#1d4ed8;background:rgba(255,255,255,.6)}
+html[data-theme="day"] .contact-details hr,html[data-theme="day"] .tabcontent{border-color:#1d4ed8}
+html[data-theme="day"] .error{color:#1d4ed8}
+html[data-theme="day"] .gallery-item p{color:#0a1a4f}
+html[data-theme="day"] .btn:not(.player .btn),html[data-theme="day"] .see-more-button{background:#0a1a4f;color:#fff;box-shadow:0 0 18px #60a5fa}
+html[data-theme="day"] .form-container{background:rgba(2,6,23,.88)}
+html[data-theme="day"] body > .wrap{color:#0a1a4f}
+
+/* 5. TOGGLE BUTTON */
+.theme-toggle{position:fixed;top:30px;right:16px;z-index:1600;padding:8px 16px;border:2px solid #fff;border-radius:999px;background:#020617;color:#fff;font:bold 14px "Trebuchet MS",sans-serif;cursor:pointer;box-shadow:0 0 8px #fff,0 0 22px #3b82f6}
+.theme-toggle:hover{box-shadow:0 0 12px #fff,0 0 34px #60a5fa}
+@media(max-width:700px){.theme-toggle{top:6px;right:6px;padding:5px 10px}}
+@media(prefers-reduced-motion:reduce){.star,.cloud,.bird,.bird svg{animation:none}.cloud{left:20%}.bird{left:60%}}

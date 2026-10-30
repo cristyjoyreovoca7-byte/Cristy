@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home - Personal Website</title>
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+
+    <!-- Theme JavaScript -->
+    <script src="theme.js"></script>
+</head>
+
+<body data-page="home">
+
+    <main class="wrap">
+
+        <!-- Image Slider -->
+        <div class="slider">
+            <div class="slides">
+
+                <div class="slide">
+                    <img src="code.png" alt="Slide 1">
+
+                    <div class="text-overlay">
+                        <h1>Welcome to my Website!</h1>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="IMG.webp" alt="Slide 2">
+
+                    <div class="text-overlay">
+                        <h1>Built with HTML, CSS and JavaScript</h1>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="coding.png" alt="Slide 3">
+
+                    <div class="text-overlay">
+                        <h1>Dark blue, white, and a little glow</h1>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Watch and Listen Section -->
+        <section class="card">
+
+            <h2 class="title">Watch &amp; Listen</h2>
+
+            <p class="lead">
+                Press Play on the music player in the corner.
+                It keeps playing as you move between pages.
+            </p>
+
+            <video
+                src="ssstik.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+            ></video>
+
+        </section>
+
+        <!-- Fun Facts Section -->
+        <section class="card">
+
+            <h2 class="title">Fun Facts About Me</h2>
+
+            <p class="lead">
+                A glimpse into my passions, interests, and little quirks.
+                Hover a card to flip it.
+            </p>
+
+            <div
+                class="funfact-container"
+                id="facts"
+                data-n="4"
+            ></div>
+
+            <div class="center">
+                <a href="funfacts.html" class="see-more-button">
+                    See More Funfacts
+                </a>
+            </div>
+
+        </section>
+
+        <!-- About Me Section -->
+        <section class="card about">
+
+            <img src="IMG.jpeg" alt="Ton">
+
+            <div>
+                <h2>HI, MY NAME IS
+                  <span class="grandint-text"> CRISTY JOY REOVOCA</span>
+
+                <p>
+                    I am a Bachelor of Science in Information Systems
+                    student who enjoys learning about programming,
+                    website development, information systems, and
+                    technology. I am continuously improving my skills
+                    by creating websites, exploring new ideas, and
+                    building creative digital projects.!
+                </p>
+
+                <blockquote>
+                    "The only way to do great work is to love what you do."
+                </blockquote>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
